@@ -1,0 +1,226 @@
+<?php
+require '../checkindex.php';
+
+?>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>商城</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/rem.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+</head>
+<body>
+<div class="mall" id="news">
+    <p>金币商城</p>
+    <span>我的金币</span>
+    <p class="orange">0</p>
+    <span>云顶好礼等你拿~</span>
+</div>
+<!--    <div class="login">登录/注册</div>-->
+<div class="icon-bag cleaxfix">
+    <div class="icon_left">
+        <img src="images/icon-bag.png"/>
+        <div class="icon_all cleaxfix">
+            <p>购物袋</p>
+            <span>想要的都在这儿</span>
+        </div>
+    </div>
+    <div class="icon_right">
+        <img src="images/icon-list.png"/>
+        <div class="icon_all cleaxfix">
+            <p>我的兑换</p>
+            <span>查看金币兑换订单</span>
+        </div>
+    </div>
+</div>
+<div class="title">
+    <img src="images/tequan.jpg"/>
+</div>
+<div class="hotsale">
+    <p><img src="images/green.png"/>&nbsp;&nbsp;兑换中心2</p>
+</div>
+<div class="rush clearfix">
+    <!--        <div class="rush_left">-->
+    <!--            <div class="copon"><img src="images/copon.jpg"/></div>-->
+    <!--            <p>【主人福利券】-满39减2元</p>-->
+    <!--            <span class="change">每人限兑10件</span>-->
+    <!--            <div class="integal"><img src="images/icon-integral.png"/>50</div>-->
+    <!--        </div>-->
+    <!--        <div class="rush_left">-->
+    <!--            <div class="copon"><img src="images/copon.jpg"/></div>-->
+    <!--            <p>【主人福利券】-满39减2元</p>-->
+    <!--            <span class="change">每人限兑10件</span>-->
+    <!--            <div class="integal"><img src="images/icon-integral.png"/>50</div>-->
+    <!--        </div>-->
+    <!--        <div class="rush_left">-->
+    <!--            <div class="copon"><img src="images/copon.jpg"/></div>-->
+    <!--            <p>【主人福利券】-满39减2元</p>-->
+    <!--            <span class="change">每人限兑10件</span>-->
+    <!--            <div class="integal"><img src="images/icon-integral.png"/>50</div>-->
+    <!--        </div>-->
+    <!--        <div class="rush_left">-->
+    <!--            <div class="copon"><img src="images/copon.jpg"/></div>-->
+    <!--            <p>【主人福利券】-满39减2元</p>-->
+    <!--            <span class="change">每人限兑10件</span>-->
+    <!--            <div class="integal"><img src="images/icon-integral.png"/>50</div>-->
+    <!--        </div>-->
+    <!--        <div class="rush_left">-->
+    <!--            <div class="copon"><img src="images/copon.jpg"/></div>-->
+    <!--            <p>【主人福利券】-满39减2元</p>-->
+    <!--            <span class="change">每人限兑10件</span>-->
+    <!--            <div class="integal"><img src="images/icon-integral.png"/>50</div>-->
+    <!--        </div>-->
+    <!--        <div class="rush_left">-->
+    <!--            <div class="copon"><img src="images/copon.jpg"/></div>-->
+    <!--            <p>【主人福利券】-满39减2元</p>-->
+    <!--            <span class="change">每人限兑10件</span>-->
+    <!--            <div class="integal"><img src="images/icon-integral.png"/>50</div>-->
+    <!--        </div>-->
+
+        <?php
+            $data=get_pro_type1(41);
+            foreach ($data as $row){
+                $id = $row['id'];
+                $img = $row['img'];
+                echo"<a href='store.php?id=$id'>";
+                echo "<div class=\"rush_left\">";
+                echo"<div class=\"copon\"><img src=\"$img\"/></div>";
+                echo "<p>".$row['shopname']."</p>";
+                echo "<span class=\"change\">每人限兑10件</span>";
+                echo "<div class=\"integal\"><img src=\"images/icon-integral.png\"/>".$row['fixed_price']."</div></div></a>";
+            }
+        ?>
+
+</div>
+<!--<div class="rush clearfix">
+    <div class="rush_left">
+        <div class="copon"><img src="images/copon.jpg"/></div>
+        <p>【主人福利券】-满39减2元</p>
+        <span class="change">每人限兑10件</span>
+        <div class="integal"><img src="images/icon-integral.png"/>50</div>
+    </div>
+    <div class="rush_right">
+        <div class="copon"><img src="images/copon.jpg"/></div>
+        <div class="copon_left">
+            <p>【主人福利券】-满85减5元</p>
+            <span class="change">每人限兑10件</span>
+            <div class="integal"><img src="images/icon-integral.png"/>50</div>
+       </div>
+    </div>
+</div>
+<div class="rush clearfix">
+    <div class="rush_left">
+        <div class="copon"><img src="images/copon.jpg"/></div>
+        <p>【主人福利券】-满39减2元</p>
+        <span class="change">每人限兑10件</span>
+        <div class="integal"><img src="images/icon-integral.png"/>50</div>
+    </div>
+    <div class="rush_right">
+        <div class="copon"><img src="images/copon.jpg"/></div>
+        <p>【主人福利券】-满85减5元</p>
+        <span class="change">每人限兑10件</span>
+        <div class="integal"><img src="images/icon-integral.png"/>50</div>
+    </div>
+</div>
+<div class="title">
+    <img src="images/newfood.jpg"/>
+</div>
+<div class="rush clearfix">
+    <div class="rush_left">
+        <div class="copon"><img src="images/new.jpg"/></div>
+        <p>美式薯条 75g</p>
+        <span class="change">数量有限，兑完为止</span>
+        <div class="integal"><img src="images/icon-integral.png"/>6000</div>
+    </div>
+    <div class="rush_right">
+        <div class="copon"><img src="images/manjian.jpg"/></div>
+        <div class="copon_left">
+            <p>【主人福利券】-满85减5元</p>
+            <span class="change">数量有限，兑完为止</span>
+            <div class="integal"><span><i>9.00+</i></span><img src="images/icon-integral.png"/>2000</div>
+        </div>
+    </div>
+</div>
+<div class="rush clearfix">
+    <div class="rush_left">
+        <div class="copon"><img src="images/total.jpg"/></div>
+        <p>香辣味鸭脖154g</p>
+        <span class="change">数量有限，兑完为止</span>
+        <div class="integal"><span><i>16.90+</i></span><img src="images/icon-integral.png"/>3000</div>
+    </div>
+    <div class="rush_right">
+        <div class="copon"><img src="images/bing.jpg"/></div>
+        <div class="copon_left">
+            <p>猪肉脯自然片芝麻味150g</p>
+            <span class="change">数量有限，兑完为止</span>
+            <div class="integal"><span><i>3.00+</i></span><img src="images/icon-integral.png"/>4900</div>
+        </div>
+    </div>
+</div>
+<div class="rush clearfix">
+    <div class="rush_left">
+        <div class="copon"><img src="images/cute.jpg"/></div>
+        <p>钵钵鸡345g</p>
+        <span class="change">数量有限，兑完为止</span>
+        <div class="integal"><span><i>7.00+</i></span><img src="images/icon-integral.png"/>6000</div>
+    </div>
+    <div class="rush_right">
+        <div class="copon"><img src="images/hongzao.jpg"/></div>
+        <div class="copon_left">
+            <p>Q弹鸡蛋干山椒味 240g</p>
+            <span class="change">数量有限，兑完为止</span>
+            <div class="integal"><span><i>6.90+</i></span><img src="images/icon-integral.png"/>8000</div>
+        </div>
+    </div>
+</div>-->
+<div class="top">
+    <a href="#news"><img src="images/icon-top.png"/></a>
+    <div class="massage"><img src="images/icon-chat.png"/></div>
+</div>
+<div class="foot">
+    <ul>
+        <li><a href="#"><span><img src="images/icon-home.png" data-url="images/icon-home.png" data-hover="images/icon-home-active.png"/><p>首页</p></span></a></li>
+        <li><a href="#"><span><img src="images/icon-classify.png" data-url="images/icon-classify.png" data-hover="images/icon-classify-active.png"/><p>分类</p></span></a></li>
+        <li><a href="#"><span><img src="images/icon-privilege.png" data-url="images/icon-privilege.png" data-hover="images/icon-privilege-active.png"/><p>商城</p></span></a></li>
+        <li><a href="#"><span><img src="images/icon-cart.png" data-url="images/icon-cart.png" data-hover="images/icon-cart-active.png"/><p>购物车</p></span></a></li>
+        <li><a href="#"><span><img src="images/icon-profile.png" data-url="images/icon-profile.png" data-hover="images/icon-profile-active.png"/><p>个人中心</p></span></a></li>
+    </ul>
+</div>
+</body>
+<script>
+    $(window).scroll(function() {
+        // 当滚动到最底部以上100像素时， 加载新内容
+        if ($(this).scrollTop() >= 395) {
+            $(".top").css("display","block");
+        }else{
+            $(".top").css("display","none");
+        }
+    });
+
+</script>
+<?php
+
+function get_pro_type1($uids)
+{
+    global $db;
+    $sql = "select * from wx_shop_goods where uid=" . $uids . " ORDER BY orderList asc,id desc";
+    $q = $db->execute($sql);
+    while ($r = $db->fetch_array($q)) {
+        $data[] = $r;
+    }
+
+    return $data;
+}
+
+
+?>
+</html>
