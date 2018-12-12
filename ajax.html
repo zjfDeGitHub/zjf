@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"> 
+    <title>Bootstrap 实例 - 带语境色彩的面板</title>
+    <script type="text/javascript" src="__INDEX__/Scripts/jquery.validate.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="content">
+<div class="panel panel-danger">
+     
+        <div class="panel-body">
+            这是一个留言板
+            <a href="">
+            <button class="btn" style="float:right" >删除</button>
+            </a>
+        </div>
+    </div>
+{volist name="messageData" id="vo"}
+    <div class="panel panel-danger">
+     
+        <div class="panel-body">
+            {$vo.message}
+            <a href="{:url('del',array('id'=>$vo['id']))}" name="id" id="{$vo.id}" >
+            <button class="btn" style="float:right" >删除</button>
+            </a>
+        </div>
+    </div>
+
+
+{/volist}
+</div>
+{$messageData->render()}
+
+<div id="message">
+
+        <div class="input-group">
+         <span class="input-group-addon primary">**</span>
+        <input type="text" class="form-control" id="MessageData" name="message" value=""> 
+        <button class="btn" id="ajax">提交</button>          
+        </div>   
+  
+</div>
+
+
+
+<script>
+    $(document).ready(function() {
+         $("#ajax").click(function(){
+            
+            $.ajax({
+                type: "POST",
+                url: "{:url('/index/Message/index')}",
+                
+                data: {
+                    message:$("#MessageData").val(),
+                    
+                },
+                 dataType: "json",
+                success: function(data){ 
+
+                               
+                     var arr=JSON.parse(data);  
+                     var url = "{:url('del',array('id'=>$vo['id']))}";                     
+                        var html = "<div class='panel panel-danger'>"+"<div class='panel-body'>"+arr.message 
+                        +"<a href='url'>"+"<button class='btn' style='float:right'>"+"删除"+"</button>"+"</a>"
+                        +"</div></div>";
+                       $("#content").append(html);
+                       $("#MessageData").val('');               //将输入框置空
+                       
+
+                    
+                },
+                error: function(jqXHR){
+                   
+                    alert("发生错误：" + jqXHR.status +$("#key_txts").val());
+                },
+            });
+        });
+
+
+    });
+
+
+</script>
+</body>
+</html>
